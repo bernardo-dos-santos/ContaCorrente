@@ -23,7 +23,11 @@
 
             conta2.movimentacoes = new Movimentacoes[100];
 
+            conta1.Transferencia(conta1, 200, conta2);
+
             conta1.ExibirExtrato();
+
+            Console.ReadLine();
 
         }
     }

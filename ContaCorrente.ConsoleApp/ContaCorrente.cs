@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,9 +53,16 @@ namespace ContaCorrente.ConsoleApp
         public void ExibirExtrato()
         {
             for (int i = 0; i < movimentacoes.Length; i++)
-            {
-                Console.WriteLine($"{movimentacoes[i].Tipo} de R${movimentacoes[i].valorUsado}");
+            {                
+                    Console.WriteLine($"{movimentacoes[i].Tipo} de R${movimentacoes[i].valorUsado}");
             }
+        }
+        public void Transferencia(ContaCorrente contaSaida, decimal valor, ContaCorrente contaEntrada)
+        {
+            contaSaida.saldo = contaSaida.saldo - valor;
+            contaEntrada.saldo += valor;
+
+            RegistrarMovimentacoes("Transferência", valor);
         }
     }
 }
