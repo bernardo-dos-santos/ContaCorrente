@@ -53,7 +53,8 @@ namespace ContaCorrente.ConsoleApp
         public void ExibirExtrato()
         {
             for (int i = 0; i < movimentacoes.Length; i++)
-            {                
+            {
+                if (movimentacoes[i] == null) continue;
                     Console.WriteLine($"{movimentacoes[i].Tipo} de R${movimentacoes[i].valorUsado}");
             }
         }
